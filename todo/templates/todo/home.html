@@ -1,0 +1,102 @@
+{% extends 'todo/base.html' %} 
+
+
+{% block content %}
+
+<div>
+    <div class="container m-0 p-0 m-auto">
+        <div class="row ps-0 m-0 m-auto w-100">
+            <div class="col-lg-5 m-auto p-0 shadow">
+                <div class="m-0 card">
+                    <h2 class="m-0 form-header p-2 rounded-3 text-center">Add ToDo</h2>
+                        <form action="/add/" method="POST" class="form">
+                            {% csrf_token%} {{form.as_p}}
+                            <hr>
+                            <input type="submit" value="ADD" class="btn btn-primary">
+                        </form>
+                </div>
+
+            </div>
+            <div class="col-lg-1">
+
+            </div>
+
+            <div class="col-lg-6 main-table-div">
+                <div>
+                    {% if todos|length == 0 %}
+                    <div class="p-4">
+                        <br>
+                        <br>
+                        <div class="alert alert-danger text-center">
+                            <p class="" style="font-size: 30px;">ToDo Lists</p>
+                        </div>
+                        <br>
+                        <br>
+                    </div>
+                    {%else%}
+                    <div class="table-div">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">No</th>
+                                    <th class="text-center" >Title</th>
+                                    <th class="text-center" >Status</th>
+                                    <th class="text-center" >Priority</th>
+                                    <th class="text-center" >Delete</th>
+                                    <th class="text-center" >Update</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for todo in todos%}
+                                <tr>
+                                    <td class="text-center">{{forloop.counter}}</td>
+                                    <td >{{todo.title}}</td>
+                                    {% if todo.status == 'C'%}
+                                    <td class="text-center">
+                                        ✅
+                                    </td>
+                                    {% elif todo.status == 'I'%}
+                                    <td class="text-center">
+                                        🚧
+                                    </td>
+                                 {% elif todo.status == 'P'%}
+                                    <td class="text-center">
+                                        💤
+                                    </td>
+                                    {%endif%}
+
+                                    <td class="text-center">
+                                        {% if todo.priority == '1'%}
+                                            1️⃣
+                                        {%elif todo.priority == '2'%}
+                                            2️⃣
+                                        {%elif todo.priority == '3'%}
+                                            3️⃣
+                                        {%elif todo.priority == '4'%}
+                                            4️⃣
+                                        {%elif todo.priority == '5'%}
+                                            5️⃣
+                                        {%endif%}
+                                    </td>
+
+                                    <td class="text-center">
+                                        <a href="delete/{{todo.id}}" title="Delete" class="text-decoration-none">🗑️</a> 
+                                    </td>
+                                    <td class="text-center">
+                                            <a href="/update/{{todo.id}}"  class="text-decoration-none">⚙️</a> 
+
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {%endif%}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock content %}

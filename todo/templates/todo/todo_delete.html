@@ -1,0 +1,14 @@
+{% extends 'todo/base.html' %}
+
+
+{% block content %}
+
+
+<form action="" method="POST" class="d-flex justify-content-center flex-column align-items-center mt-5">
+    {% csrf_token %}
+    <h2 class="fw-bold">Are you sure for delete {{todo}} !</h2> 
+    <input type="submit" value="delete" class="delete-btn w-25 btn btn-danger">
+</form>
+    
+{% endblock content %}
+    

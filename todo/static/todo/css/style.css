@@ -1,0 +1,80 @@
+.navbar {
+    background-color: cadetblue;
+}
+
+.container{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#warning {
+    background-color: lightcoral;
+    color: aliceblue;
+    margin: auto;
+    width: 40%;
+    height: 30%;
+    text-align: center;
+}
+#success {
+    background-color: darkseagreen ;
+    color:rgb(231, 200, 158);
+    margin: auto;
+    width: 40%;
+    height: 30%;
+    text-align: center;
+}
+
+body {
+    background-image: url("../images/sunset.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.card,.table-div{
+    background-color: rgba(0,0,0,0.5);
+    color: white !important;
+    padding:1rem;
+}
+.card,.main-table-div{
+    margin-top: 1rem !important;
+
+}
+.table-div table th,.table-div table td{
+    color: white !important;
+}
+
+.form input:not(input[type="submit"]),textarea{
+    width: 100%;
+    background-color: rgba(255, 255, 255,.5);
+    border-style: solid;
+    outline: none;
+}
+
+.form textarea{
+    resize: none;
+    height: 8rem;
+    overflow:auto;
+  
+}
+.form label{
+    display: block;
+}
+.form select{
+    width: 100%;
+    background-color: rgba(255, 255, 255,.5);
+}
+.form select option{
+    background-color: rgba(255, 255, 255,.5);
+}
+input[type="submit"]{
+    width: 100%;
+}
+.delete-btn{
+    width: 12rem !important;
+
+}
